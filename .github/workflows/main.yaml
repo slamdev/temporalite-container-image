@@ -28,5 +28,5 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: slamdev/temporalite:${{ github.event.inputs.message }}
-          build-args: TEMPORALITE_VERSION=${{ github.event.inputs.message }}
+          tags: slamdev/temporalite:${{ github.event.inputs.version }}
+          build-args: TEMPORALITE_VERSION=${{ github.event.inputs.version }}
