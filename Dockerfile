@@ -1,7 +1,7 @@
 FROM alpine:3.17.0
 
 ARG TARGETARCH
-ARG TEMPORALITE_VERSION=0.3.0
+ARG TEMPORALITE_VERSION
 
 RUN wget -q https://github.com/temporalio/temporalite/releases/download/v${TEMPORALITE_VERSION}/temporalite_${TEMPORALITE_VERSION}_linux_${TARGETARCH}.tar.gz -O temporalite.tar.gz \
  && tar -xf temporalite.tar.gz temporalite -C /usr/local/bin/ \
