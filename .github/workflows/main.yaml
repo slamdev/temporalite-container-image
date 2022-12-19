@@ -27,6 +27,8 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: slamdev/temporalite
+          labels: |
+            org.opencontainers.image.version=${{ github.event.inputs.version }}
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
