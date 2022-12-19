@@ -22,6 +22,9 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v4
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
@@ -30,3 +33,4 @@ jobs:
           push: true
           tags: slamdev/temporalite:${{ github.event.inputs.version }}
           build-args: TEMPORALITE_VERSION=${{ github.event.inputs.version }}
+          labels: ${{ steps.meta.outputs.labels }}
